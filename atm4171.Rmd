@@ -1,6 +1,6 @@
 ---
-title: "ATM4171 Introduction to Machine Learning for \\newline Atmospheric and Earth System"
-author: "Xinyi Zhang, Exercise 0"
+title: "ATM4171 Introduction to Machine Learning for Atmospheric and Earth System"
+author: ""
 output: pdf_document
 ---
 ```{r setup, include = FALSE}
@@ -12,8 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r eval = TRUE, prompt = FALSE, comment = '', fig.width = 5, fig.height = 3,fig.align='center'}  
 
-file_path <- paste('C:/Users/zhang/OneDrive - University of Helsinki/ATM PSP/Optional',
-                  'ATM4171 MLAtmEarSys/exercise/exercise0/x.csv',sep = "/")  # file path
+file_path <- paste('',
+                  '.csv',sep = "/")  # file path
 x <- read.csv(file_path, header = TRUE)  # read source data, list
 Vx_variance <- apply(x, 2, var)  # compute column variance, double
 sorted_indices <- order(Vx_variance, decreasing=TRUE)  # sort variance in descending order
