@@ -184,15 +184,14 @@ pX <- 0.2  # +population, P(X)
 
 # randomly find a pollen allergic person to test, and test result is + (known), P(X|Y)
 # Bayes's rule, P(X|Y) = P(Y|X)*P(X)/P(Y)
-# P(Y|X) = P(X)-P(-Y|X)
-# P(Y) = P(X^Y)+P(-X^Y), P(X^Y) = P(Y|X)*P(X), P(Y|X) = P(X)-P(-Y|X), P(-X^Y) = P(Y|-X)*P(-X), P(-X) = 1-P(X)
+# P(Y|X) = 1-P(-Y|X)
+# P(Y) = P(X^Y)+P(-X^Y), P(X^Y) = P(Y|X)*P(X), P(-X^Y) = P(Y|-X)*P(-X), P(-X) = 1-P(X)
 
 pnegX <- 1 - pX  # P(-X) = 1-P(X)
 pnegXandY <- pYgivennegX * pnegX  # P(-X^Y) = P(Y|-X)*P(-X) 
-pYgivenX <- pX - pnegYgivenX  # P(Y|X) = P(X)-P(-Y|X)
+pYgivenX <- 1 - pnegYgivenX  # P(Y|X) = 1-P(-Y|X)
 pXandY <- pYgivenX * pX  # P(X^Y) = P(Y|X)*P(X)
 pY <- pXandY + pnegXandY  # P(Y) = P(X^Y)+P(-X^Y)
-pYgivenX <- pX - pnegYgivenX  # P(Y|X) = P(X)-P(-Y|X)
 pXgivenY <- pYgivenX * pX / pY  # P(X|Y) = P(Y|X)*P(X)/P(Y)
 print(pXgivenY)
 
